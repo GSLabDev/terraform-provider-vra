@@ -1,4 +1,4 @@
-package vRA
+package vra
 
 import (
 	"bytes"
