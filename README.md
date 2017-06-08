@@ -5,11 +5,13 @@ vRealize Automation:-
         utilizes go library. It uses rest apis of vRA and send http request.   
 
 
-Resources:
+Resources:-
 
 Execute Blueprint:
- -It executes any blueprint present in VRA.
- -Blueprint name is given in configuaration file.
- -To execute that blueprint json data should pass from user in .json file  
+
+     -It executes any blueprint present in VRA.
+     -Blueprint name is given in configuaration file.
+     -To execute that blueprint json data should pass from user in .json file 
 
 The main.tf file contains the microservices of how to call the providers and resources. We need to specify required details for resource creation in this file.
+
