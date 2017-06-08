@@ -2,6 +2,7 @@ package vra
 
 import (
 	"crypto/tls"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -19,23 +20,25 @@ type Config struct {
 // GetResponse ... get Response according to
 func (c *Config) GetResponse(request *http.Request) ([]byte, error) {
 
-	token, err := GetToken(c.Host, c.Username, c.Password, c.Tenant)
+	token, err := GetToken(c.Host, c.Username, "gsLab!23", c.Tenant)
 	if err != nil {
 		log.Println("[ERROR] Error in getting token")
-		return nil, err
+		return nil, fmt.Errorf("[ERROR] Error in getting token %s", err)
 	}
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	var tempURL *url.URL
-	tempURL, err = url.Parse("https://" + c.Host + "/" + request.URL.Path)
+	tempURL, err = url.Parse("https:/" + "/" + c.Host + "/" + request.URL.Path)
 	if err != nil {
 		log.Println("[Error] URL is not in correct format")
 		return nil, err
+		//fmt.Errorf("[ERROR] URL is not in correct format%s", err)
+
 	}
 	request.URL = tempURL
 	tokenString := "Bearer " + token.ID
-
+	log.Println(request.URL)
 	request.Header.Set("Accept", "application/json")
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Authorization", tokenString)
@@ -45,6 +48,7 @@ func (c *Config) GetResponse(request *http.Request) ([]byte, error) {
 	if err != nil {
 		log.Println(" [ERROR] Do: ", err)
 		return nil, err
+		//fmt.Errorf("[ERROR] Error in Do request %s", err)
 	}
 	return ioutil.ReadAll(resp.Body)
 }
