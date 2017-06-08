@@ -9,7 +9,5 @@ provider "vra" {
 resource "vra_execute_blueprint" "ExecuteBlueprint" {
         
        blueprint_name = "Create simple virtual machine"
-       file_name = "da.json"
+       file_name = "data.json"
 }
-
-
