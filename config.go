@@ -20,7 +20,7 @@ type Config struct {
 // GetResponse ... get Response according to
 func (c *Config) GetResponse(request *http.Request) ([]byte, error) {
 
-	token, err := GetToken(c.Host, c.Username, "gsLab!23", c.Tenant)
+	token, err := GetToken(c.Host, c.Username, c.Password, c.Tenant)
 	if err != nil {
 		log.Println("[ERROR] Error in getting token")
 		return nil, fmt.Errorf("[ERROR] Error in getting token %s", err)
