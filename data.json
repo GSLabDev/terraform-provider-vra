@@ -1,3 +1,5 @@
+//json data for create vm blueprint 
+
 {   
 	 "diskThinProvisioned": false,
     "vmDatastore": {
@@ -39,5 +41,16 @@
       "classId": "VC:ResourcePool",
       "id": "vrovc1.ad1lab.com/resgroup-118",
       "label": "Resources"
+    }
+  }
+  
+  //json data for delete vm
+  
+  {
+   "vm": {
+      "componentId": null,
+      "classId": "VC:VirtualMachine",
+      "id": "vrovc1.ad1lab.com/vm-972",
+      "label": "Payal-04"
     }
   }
