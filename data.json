@@ -1,0 +1,43 @@
+{   
+	 "diskThinProvisioned": false,
+    "vmDatastore": {
+      "componentId": null,
+      "classId": "VC:Datastore",
+      "id": "vrovc1.ad1lab.com/datastore-873",
+      "label": "NFS-VM"
+    },
+    "vmDiskSize": 1,
+    "vmFolder": {
+      "componentId": null,
+      "classId": "VC:VmFolder",
+      "id": "vrovc1.ad1lab.com/group-v148",
+      "label": "VRM"
+    },
+    "vmGuestOs": {
+      "componentId": null,
+      "classId": "VC:VirtualMachineGuestOsIdentifier",
+      "id": "rhel7Guest",
+      "label": "rhel7Guest"
+    },
+    "vmHost": {
+      "componentId": null,
+      "classId": "VC:HostSystem",
+      "id": "vrovc1.ad1lab.com/host-876",
+      "label": "10.0.91.125"
+    },
+    "vmMemorySize": 4,
+    "vmName": "TestP",
+    "vmNbOfCpus": 2,
+    "vmNetwork": {
+      "componentId": null,
+      "classId": "VC:Network",
+      "id": "vrovc1.ad1lab.com/network-109",
+      "label": "VM Network"
+    },
+    "vmResourcePool": {
+      "componentId": null,
+      "classId": "VC:ResourcePool",
+      "id": "vrovc1.ad1lab.com/resgroup-118",
+      "label": "Resources"
+    }
+  }
