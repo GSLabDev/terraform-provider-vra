@@ -1,6 +1,9 @@
-vRealize Automation provides UI where developers,users can request IT services and manage IT resources. vRA provider is created newly. 
-It utilizes go library. It uses rest apis of vRA and send http request.   
-
+vRealize Automation:-
+      
+        vRealize Automation provides UI where developers,users can request IT 
+        services and manage IT resources. vRA provider is created newly. 
+        It utilizes go library. It uses rest apis of vRA and send http request.   
+.
 Resources:
 
 Execute Blueprint:
