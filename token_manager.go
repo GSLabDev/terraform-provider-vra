@@ -29,6 +29,8 @@ func GetToken(host, userName, password, tenant string) (Token, error) {
 		if err != nil {
 			fmt.Printf("[Error] Cannot get Token : %s", err.Error())
 			return Token{}, err
+			//fmt.Errorf("[ERROR] Can't get token %s", err)
+
 		}
 	} else {
 		json.Unmarshal(fileData, &token)
@@ -50,8 +52,8 @@ func GetToken(host, userName, password, tenant string) (Token, error) {
 
 func getTokenFromHost(host, userName, password, tenant string) (Token, error) {
 	var jsonStr = []byte(`{"username":"` + userName + `","password":"` + password + `","tenant":"` + tenant + `"}`)
-
-	req, err := http.NewRequest("POST", "https://"+host+"/identity/api/tokens/", bytes.NewBuffer(jsonStr))
+	log.Println(bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", "https:/"+"/"+host+"/identity/api/tokens/", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		log.Println("[ERROR] Error while requesting Token ", err)
 		return Token{}, err
@@ -60,6 +62,7 @@ func getTokenFromHost(host, userName, password, tenant string) (Token, error) {
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
 	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{Transport: tr}
 	resp, err := client.Do(req)
@@ -67,7 +70,7 @@ func getTokenFromHost(host, userName, password, tenant string) (Token, error) {
 		log.Println("[ERROR] Error while requesting Token ", err)
 		return Token{}, err
 	}
-	defer resp.Body.Close()
+		defer resp.Body.Close()
 	var record Token
 	fileData, _ := ioutil.ReadAll(resp.Body)
 	if err := json.Unmarshal(fileData, &record); err != nil {
