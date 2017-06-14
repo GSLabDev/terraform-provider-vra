@@ -1,5 +1,8 @@
-//json data for create vm blueprint 
+//ONLY FOR REFERENCE
+//At a time user can enter only one template data in data.json file
+//In this file we can use either for create vm or delete vm
 
+//json data for create vm blueprint 
 {   
 	 "diskThinProvisioned": false,
     "vmDatastore": {
@@ -45,7 +48,6 @@
   }
   
   //json data for delete vm
-  
   {
    "vm": {
       "componentId": null,
