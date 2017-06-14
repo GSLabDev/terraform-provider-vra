@@ -1,8 +1,8 @@
 provider "vra" {
-        host_url = "192.168.35.95"
-        tenant = "team"
-        user_name = "demo"
-        user_password = "gsLab!23"
+        host_url = "<vra_host_url/vra_host_ip>"
+        tenant = "<tenant_name>"
+        user_name = "<vra_user_name>"
+        user_password = "<vra_user_password>"
 }
 
 
