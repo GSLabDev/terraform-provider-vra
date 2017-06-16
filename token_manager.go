@@ -12,51 +12,30 @@ import (
 )
 
 // Token ... Authentication Token
-type Token struct {
+type tokenJsonstruct struct {
 	Expires time.Time `json:"expires"`
 	ID      string    `json:"id"`
 	Tenant  string    `json:"tenant"`
 }
 
 // GetToken ... Get Token from existing store or create a new one.
-func GetToken(host, userName, password, tenant string) (Token, error) {
+func GetToken(host, userName, password, tenant string) (string, error) {
 
-	var token Token
-	fileData, err := ioutil.ReadFile(tenant + "_" + userName + ".tra")
+	token, err := getTokenFromHost(host, userName, password, tenant)
 	if err != nil {
-		log.Println("[Warn] Cannot read Token File" + err.Error())
-		token, err = getTokenFromHost(host, userName, password, tenant)
-		if err != nil {
-			fmt.Printf("[Error] Cannot get Token : %s", err.Error())
-			return Token{}, err
-			//fmt.Errorf("[ERROR] Can't get token %s", err)
-
-		}
-	} else {
-		json.Unmarshal(fileData, &token)
-		log.Println(token.ID)
-		currentTime := time.Now().Local()
-		if token.Expires.After(currentTime) {
-			log.Println("Token is valid")
-		} else {
-			token, err = getTokenFromHost(host, userName, password, tenant)
-			if err != nil {
-				fmt.Printf("[Error] Cannot get Token : %s", err.Error())
-				return Token{}, err
-			}
-		}
+		fmt.Printf("[Error] Cannot get Token : %s", err.Error())
+		return "", err
 	}
-
 	return token, nil
 }
 
-func getTokenFromHost(host, userName, password, tenant string) (Token, error) {
+func getTokenFromHost(host, userName, password, tenant string) (string, error) {
 	var jsonStr = []byte(`{"username":"` + userName + `","password":"` + password + `","tenant":"` + tenant + `"}`)
 	log.Println(bytes.NewBuffer(jsonStr))
 	req, err := http.NewRequest("POST", "https:/"+"/"+host+"/identity/api/tokens/", bytes.NewBuffer(jsonStr))
 	if err != nil {
 		log.Println("[ERROR] Error while requesting Token ", err)
-		return Token{}, err
+		return "", err
 	}
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
@@ -68,16 +47,26 @@ func getTokenFromHost(host, userName, password, tenant string) (Token, error) {
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Println("[ERROR] Error while requesting Token ", err)
-		return Token{}, err
+		return "", err
 	}
-		defer resp.Body.Close()
-	var record Token
-	fileData, _ := ioutil.ReadAll(resp.Body)
-	if err := json.Unmarshal(fileData, &record); err != nil {
-		return Token{}, err
+	if resp.StatusCode == 400 {
+		log.Println("[ERROR] Error in connection. Check Username, Password and tenant name")
+		return "", fmt.Errorf("[ERROR] Error in connection. Check Username, Password and tenant name")
 	}
-	log.Printf("[INFO] Token details: Token ID: %s\n Token Expiry %s", record.ID, record.Expires.Format("2006-01-02-15:04:05"))
 
-	err = ioutil.WriteFile(tenant+"_"+userName+".tra", fileData, 0644)
-	return record, nil
+	body, err := ioutil.ReadAll(resp.Body)
+
+	if err != nil {
+		log.Println("[Error]")
+	}
+
+	var tokenGostruct tokenJsonstruct
+
+	if err = json.Unmarshal(body, &tokenGostruct); err != nil {
+		log.Printf("[ERROR] Error while unmarshal %s", err)
+		return "", fmt.Errorf("[ERROR] Error while unmarshal %s", err)
+	}
+
+	token := tokenGostruct.ID
+	return token, nil
 }
