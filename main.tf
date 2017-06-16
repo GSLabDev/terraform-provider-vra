@@ -9,5 +9,6 @@ provider "vra" {
 resource "vra_execute_blueprint" "ExecuteBlueprint" {
         
        blueprint_name = "Create simple virtual machine"
-       file_name = "data.json"
+       input_file_name = "data.json"
+       time_out = 20
 }
