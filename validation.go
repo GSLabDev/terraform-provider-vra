@@ -5,14 +5,6 @@ import (
 	"regexp"
 	"strconv"
 )
-func validateTimeout(v interface{}, k string) (warnings []string, errors []error) {
-	timeoutValue := v.(int)
-	_, err := strconv.ParseInt(timeoutValue, 10, 64)
-	if err != nil {
-		return returnError("Timeout should be a natural number with base 10", err)
-	}
-	return nil, nil
-}
 
 func validateBlueprintName(v interface{}, k string) (warnings []string, errors []error) {
 	blueprintName := v.(string)
