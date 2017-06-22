@@ -33,7 +33,6 @@ func ExecuteBlueprint() *schema.Resource {
 				Type:     schema.TypeInt,
 				Optional: true,
 				ForceNew: true,
-				ValidateFunc: validateTimeout,
 			},
 		},
 	}
@@ -119,7 +118,7 @@ func ExecuteBlueprintCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 	requestId := requestGostruct.ID
 	if timeout == 0 {
-		return checkrequestStatus(d, config, requestId, 15)
+		return checkrequestStatus(d, config, requestId, 50)
 	} else {
 		return checkrequestStatus(d, config, requestId, timeout)
 	}
@@ -133,4 +132,3 @@ func ExecuteBlueprintDelete(d *schema.ResourceData, metadata interface{}) error 
 	return nil
 
 }
-
