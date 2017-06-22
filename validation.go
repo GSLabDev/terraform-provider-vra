@@ -3,6 +3,7 @@ package vra
 import (
 	"fmt"
 	"regexp"
+	"strconv"
 )
 func validateTimeout(v interface{}, k string) (warnings []string, errors []error) {
 	timeoutValue := v.(int)
