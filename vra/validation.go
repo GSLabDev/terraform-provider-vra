@@ -3,7 +3,6 @@ package vra
 import (
 	"fmt"
 	"regexp"
-	"strconv"
 )
 
 func validateBlueprintName(v interface{}, k string) (warnings []string, errors []error) {

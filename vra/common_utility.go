@@ -15,8 +15,8 @@ func getBlueprintList(config Config) ([]byte, error) {
 	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		log.Printf("[ERROR] Error in creating http Request %s", err)
-                return nil,err	
-}
+		return nil, err
+	}
 	response, err := config.GetResponse(request)
 	if err != nil {
 		log.Printf("[ERROR] Error in getting response %s", err)

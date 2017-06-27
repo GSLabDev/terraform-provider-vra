@@ -46,7 +46,7 @@ func (c *Config) GetResponse(request *http.Request) ([]byte, error) {
 	if err != nil {
 		log.Println(" [ERROR] Do: ", err)
 		return nil, err
-	
+
 	}
 	return ioutil.ReadAll(resp.Body)
 }
