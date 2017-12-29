@@ -51,6 +51,6 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 		Tenant:   d.Get("tenant").(string),
 	}
 
-	log.Println("[INFO] Initializing Tenant Connection")
+	log.Println("[DEBUG] Initializing Tenant Connection")
 	return config, nil
 }

@@ -33,7 +33,7 @@ func checkrequestStatus(d *schema.ResourceData, config Config, requestId string,
 			state, err := getRequestResponse(config, requestId)
 			if err == nil {
 				if state == "SUCCESSFUL" {
-					log.Println("[INFO] Blueprint executed SUCCESSFULLY")
+					log.Println("[DEBUG] Blueprint executed SUCCESSFULLY")
 					d.SetId(requestId)
 					return nil
 				} else if state == "SUBMITTED" || state == "IN_PROGRESS" {
