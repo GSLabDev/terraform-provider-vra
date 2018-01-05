@@ -5,7 +5,7 @@ with Terraform to work with vRealize Automation.
 
 [1]: https://www.vmware.com/products/vrealize-automation.html
 
-Coverage is currently only limited to Executing Blueprint but in the coming months we are planning release coverage for most essential vRealize Automation workflows.
+Support Execution of Blueprint, work in progress to support additional usecase of vRealize Automation.
 Watch this space!
 
 For general information about Terraform, visit the [official website][3] and the
