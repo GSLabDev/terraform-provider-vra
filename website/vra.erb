@@ -1,0 +1,23 @@
+<% wrap_layout :inner do %>
+    <% content_for :sidebar do %>
+      <div class="docs-sidebar hidden-print affix-top" role="complementary">
+        <ul class="nav docs-sidenav">
+          <li<%= sidebar_current("docs-home") %>>
+            <a href="/docs/providers/index.html">All Providers</a>
+          </li>
+          <li<%= sidebar_current("docs-vra-index") %>>
+            <a href="/docs/providers/vra/index.html">vRealize Automation</a>
+          </li>
+          <li<%= sidebar_current("docs-vra-resource-inventory") %>>
+            <a href="#">Execute Blueprint</a>
+            <ul class="nav nav-visible">
+              <li<%= sidebar_current("docs-vra-execute-blueprint") %>>
+                <a href="/docs/providers/vra/r/execute_blueprint.html">vra_execute_blueprint</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+    <%= yield %>
+  <% end %>
