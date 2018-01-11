@@ -27,4 +27,5 @@ The following arguments are supported:
 
 * `blueprint_name` - (Required) The Blueprint Name which we want to execute
 * `input_file_name` - (Required) The configuration file which is required to execute blueprint
-* `timeout` - (Optional) Maximum time to wait for the blueprint to execute
+* `timeout` - (Optional) Timeout should be in seconds and its optional i.e user can gives in seconds 
+ otherwise its default value is 50 sec.

@@ -45,7 +45,7 @@ func checkrequestStatus(d *schema.ResourceData, config Config, requestId string,
 				return err
 			}
 		case <-timeout:
-			fmt.Printf("timeout\n")
+			log.Println("[DEBUG] Timeout occured")
 			return fmt.Errorf("[ERROR] Timeout")
 		}
 	}

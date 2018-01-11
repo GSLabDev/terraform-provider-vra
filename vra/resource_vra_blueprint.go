@@ -65,7 +65,7 @@ func ExecuteBlueprintCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 	if blueprintId == "" {
 		log.Printf("[Error] Blueprint is not present")
-		return fmt.Errorf("[ERROR]Blueprint is not present %s", blueprintName)
+		return fmt.Errorf("[ERROR] Blueprint is not present %s", blueprintName)
 	}
 
 	url := "catalog-service/api/consumer/entitledCatalogItems/" + blueprintId + "/requests/template"
@@ -79,7 +79,7 @@ func ExecuteBlueprintCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 	file, e := ioutil.ReadFile(inputFileName)
 	if e != nil {
-		fmt.Printf("File error: %v\n", e)
+		log.Printf("[ERROR] File error: %v\n", e)
 	}
 
 	//structure for user's json data

@@ -23,7 +23,7 @@ func GetToken(host, userName, password, tenant string) (string, error) {
 
 	token, err := getTokenFromHost(host, userName, password, tenant)
 	if err != nil {
-		fmt.Printf("[Error] Cannot get Token : %s", err.Error())
+		log.Printf("[Error] Cannot get Token : %s", err.Error())
 		return "", err
 	}
 	return token, nil
