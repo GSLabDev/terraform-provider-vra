@@ -1,6 +1,7 @@
 Generate JSON data
 
   To generate JSON data we need to request template of required blueprint, after getting that template for first time we can use it for multiple times by changing required fields.
+
 1) Get token:-
 
     method - Post
@@ -9,7 +10,8 @@ Generate JSON data
 
     headers – Accept : applcation/json, Content-Type : application/json
 
-    data - {&quot;username&quot;:&quot;+ userName +&quot;,&quot;password&quot;:&quot;+ password +&quot;,&quot;tenant&quot;:&quot;+ tenant +&quot;}
+    data - {"username":"+ userName +","password":"+ password +","tenant":"+ tenant +"}
+
 If the response status code is 200 then take the id field from response body as authorization token($Token) which is required for next operations.
 
 2) Get blueprint ID
