@@ -26,6 +26,8 @@ resource "vra_execute_blueprint" "ExecuteBlueprint" {
 The following arguments are supported:
 
 * `blueprint_name` - (Required) The Blueprint Name which we want to execute
-* `input_file_name` - (Required) The configuration file which is required to execute blueprint
+* `input_file_name` - (Required) The configuration file which is required to execute blueprint,to create that template or the configuaration file refer CREATE_JSON.MD file
 * `timeout` - (Optional) Timeout should be in seconds and its optional i.e user can gives in seconds 
  otherwise its default value is 50 sec.
+ 
+ 
