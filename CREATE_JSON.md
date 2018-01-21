@@ -1,8 +1,8 @@
-# Generate JSON data
+## Generate JSON data
 
   To generate JSON data we need to request template of required blueprint, after getting that template for first time we can use it for multiple times by changing required fields.
 
-1) Get token:-
+### 1) Get token:-
 
 ```hcl
     method - Post
@@ -16,7 +16,7 @@
 
 If the response status code is 200 then take the id field from response body as authorization token($Token) which is required for next operations.
 
-2) Get blueprint ID :-
+### 2) Get blueprint ID :-
 ```hcl
    method - Get
 
@@ -26,7 +26,7 @@ If the response status code is 200 then take the id field from response body as 
 ```
  Get the id field from response body (Blueprint\_ID) used to get template and to the send request
  
-3) Get Template :-
+### 3) Get Template :-
 ```hcl
    method - Get
 
@@ -38,7 +38,7 @@ After getting template we can use it for multiple times by changing required fie
 i.e If you have created blueprint to create instance on vCenter, then you can change name of that instance, machine resources, storage, network configuration etc.
 You can check that template by sending request
 
-4) Send Request :-
+### 4) Send Request :-
 
 ```hcl
     method- Post
