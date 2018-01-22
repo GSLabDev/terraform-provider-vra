@@ -1,26 +1,27 @@
 ## Generate JSON data
 
   To generate JSON data we need to request template of required blueprint, after getting that template for first time we can use it for multiple times by changing required fields.
-
+*Note :- Replace the variable's value which are in "<>"
 ### 1) Get token:-
 
 ```hcl
     method - Post
 
-    url - https://+Host+/identity/api/tokens/
+    url - https://<Host>/identity/api/tokens/
 
     headers – Accept : applcation/json, Content-Type : application/json
 
-    data - {"username":"+ userName +","password":"+ password +","tenant":"+ tenant +"}
+    data - {"username":"<userName>","password":"<password>","tenant":"<tenant>"}
 ```
 
 If the response status code is 200 then take the id field from response body as authorization token($Token) which is required for next operations.
 
 ### 2) Get blueprint ID :-
+     
 ```hcl
    method - Get
 
-   url - https://+Host+/catalog-service/api/consumer/entitledCatalogItems/?$filter=name eq 'blueprint_name' 
+   url - https://<Host>/catalog-service/api/consumer/entitledCatalogItems/?$filter=name eq <blueprint_name> 
 
    headers – Accept : applcation/json, Content-Type : application/json and Authorization: Bearer $Token
 ```
@@ -30,7 +31,7 @@ If the response status code is 200 then take the id field from response body as 
 ```hcl
    method - Get
 
-   url – https://+Host+/catalogservice/api/consumer/entitledCatalogItems/Blueprint_ID/requests/template
+   url – https://<Host>/catalogservice/api/consumer/entitledCatalogItems/Blueprint_ID/requests/template
 
    headers – Accept : applcation/json, Content-Type : application/json and Authorization: Bearer $Token
 ```
@@ -43,7 +44,7 @@ You can check that template by sending request
 ```hcl
     method- Post
 
-    url - https://+Host+/catalog-service/api/consumer/entitledCatalogItems/Blueprint_ID/requests
+    url - https://<Host>/catalog-service/api/consumer/entitledCatalogItems/Blueprint_ID/requests
 
     headers – Accept : applcation/json, Content-Type : application/json and Authorization: Bearer $Token
 ```
