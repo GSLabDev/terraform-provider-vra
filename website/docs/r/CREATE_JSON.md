@@ -1,7 +1,7 @@
 ## Generate JSON data
 
   To generate JSON data we need to request template of required blueprint, after getting that template for first time we can use it for multiple times by changing required fields.
-*Note :- Replace the variable's value which are in "\< \>"
+*Note :- Replace the variable's value which are in `<>`
 ### 1) Get token:-
 
 ```hcl
