@@ -116,7 +116,7 @@ variables.
 
 ### Using the `.tf-vra-devrc.mk` file
 
-The [`tf-vra-devrc.mk.example`](tf-odl-devrc.mk.example) file contains
+The [`tf-vra-devrc.mk.example`](tf-vra-devrc.mk.example) file contains
 an up-to-date list of environment variables required to run the acceptance
 tests. Copy this to `$HOME/.tf-vra-devrc.mk` and change the permissions to
 something more secure (ie: `chmod 600 $HOME/.tf-vra-devrc.mk`), and
