@@ -3,8 +3,8 @@ layout: "vra"
 page_title: "Provider: vRealize Automation"
 sidebar_current: "docs-vra-index"
 description: |-
-  The Open Daylight provider is used to interact with the resources supported by
-  Open Daylight. The provider needs to be configured with the proper credentials
+  The vRealize Automation provider is used to interact with the resources supported by
+  vRealize Automation. The provider needs to be configured with the proper credentials
   before it can be used.
 ---
 
@@ -54,7 +54,7 @@ The following arguments are used to configure the Active Directory Provider:
 
 ## Acceptance Tests
 
-The Active Directory provider's acceptance tests require the above provider
+The vRealize Automation provider's acceptance tests require the above provider
 configuration fields to be set using the documented environment variables.
 
 Once all these variables are in place, the tests can be run like this:
