@@ -27,7 +27,7 @@ official release announcement found [here][4].
 
 ## Full Provider Documentation
 
-The provider is usefull in adding Virtual Tenant Network, Bridges and Interfaces using Open Daylight.
+The provider is usefull in executing any blueprint of vRA from Terraform.
 
 ### Example
 ```hcl
@@ -104,8 +104,7 @@ See [Building the Provider][11] for details on building the provider.
 
 # Testing the Provider
 
-**NOTE:** Testing the Open Daylight provider is currently a complex operation as it
-requires having a Open Daylight Server to test against.
+**PreRequisite:** Testing the vRA provider need vRA setup up and running. Also, need input json for blueprint planning to execute.
 
 ## Configuring Environment Variables
 
