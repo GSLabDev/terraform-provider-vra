@@ -3,12 +3,12 @@ layout: "vra"
 page_title: "vRealize Automation: vra_execute_blueprint"
 sidebar_current: "docs-vra-resource-inventory-folder"
 description: |-
-  Provides a vRealize Blueprint Executing resource. This can be used to execute blueprint in vRealize.
+  Provides a vRealize Blueprint Executing resource. This can be used to execute blueprint in vRealize Automation.
 ---
 
 # vra\_execute\_blueprint
 
-Provides a vRealize executing resource. This can be used to execute blueprints in vRealize.
+Provides a vRealize Automation executing resource. This can be used to execute blueprints in vRealize.
 
 ## Example Usage
 
